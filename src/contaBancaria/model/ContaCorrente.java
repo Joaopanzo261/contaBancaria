@@ -1,6 +1,6 @@
 package contaBancaria.model;
 
-public class ContaCorrente extends contaBancaria {
+public class ContaCorrente extends Conta {
 
 	private float limite;
 

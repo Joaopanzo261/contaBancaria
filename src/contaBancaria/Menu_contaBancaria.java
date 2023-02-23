@@ -1,9 +1,9 @@
 package contaBancaria;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.Scanner;
 
-import contaBancaria.model.contaBancaria;
+//import contaBancaria.model.contaBancaria;
 import contaBancaria.model.ContaPoupanca;
 import contaBancaria.model.ContaCorrente;
 import contaBancaria.util.Cores;
@@ -17,30 +17,30 @@ public class Menu_contaBancaria {
 				Scanner leia = new Scanner(System.in);
 				
 				// criamos objeto conta c1
-				contaBancaria c1 = new contaBancaria(1, 123, 1, "Erica Araújo", 30000.0f);
-				
+			//	contaBancaria c1 = new contaBancaria(1, 123, 1, "Erica Araújo", 30000.0f);
+			//	
 				// Visualizamos os dados da conta c1
-				c1.visualizar();
+			//	c1.visualizar();
 				
 				//bAlteramos o saldo da conta c1
-				c1.setSaldo(35000);
-				System.out.println("\n\n" + c1.getSaldo());
+			///	c1.setSaldo(35000);
+			//	System.out.println("\n\n" + c1.getSaldo());
 				
 				
-				contaBancaria c2 = new contaBancaria(2, 123, 1, " João Panzo", 30000.0f);
+			//	contaBancaria c2 = new contaBancaria(2, 123, 1, " João Panzo", 30000.0f);
 				
-				c2.visualizar();
+			//	c2.visualizar();
 				
-				// Efetuamos um saque na conta c2 e visualizamos o novo saldo
-				if (c2.sacar(1000.0f))
-					System.out.println("\n\n" + c2.getSaldo());
+			//	// Efetuamos um saque na conta c2 e visualizamos o novo saldo
+			//	if (c2.sacar(1000.0f))
+				//	System.out.println("\n\n" + c2.getSaldo());
 				
 				
 				// Efetuamos deposito na conta c1
-				c1.depositar(10000.0f);
+			//	c1.depositar(10000.0f);
 				
 				// Visualizamos os dados da conta c1 após o deposito
-				c1.visualizar();
+			//	c1.visualizar();
 				
 				ContaCorrente c3 = new ContaCorrente (3, 123, 1, "Kiala ", 20000.0f, 1000.0f);
 				
@@ -259,14 +259,12 @@ public class Menu_contaBancaria {
 			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
 			System.in.read();
 
-		} catch (IOException e) {
+		
 
-			System.out.println("Você pressionou uma tecla diferente de enter!");
 
-		}
 	}
 
-
+	}
 }
 
 	
