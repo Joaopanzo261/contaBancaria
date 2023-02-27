@@ -8,16 +8,20 @@ import contaBancaria.repository.ContaRepository;
 public class ContaController implements ContaRepository {
 	
 	private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+	int numero = 0;
 	
 
 	@Override
 	public void procurarPorNumero(int numero) {
 		
+		
 		var conta = buscarNaCollection(numero);
+		
 		if (conta !=null)
 			conta.visualizar();
-		else 
-			System.out.println(" A Conta número: " + numero + "não foi enccontrada");
+		else
+			System.out.println("A Conta número: " + numero + " não foi encontrado");
+	
 		
 		
 	}
@@ -67,19 +71,48 @@ public class ContaController implements ContaRepository {
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		
+		var conta = buscarNaCollection(numero);
+		if (conta !=null) {
+			if (conta.sacar(valor) == true)
+				System.out.println("O saque foi efetuado com sucesso");
+		} else 
+			System.out.println(" A Conta número: " + numero + "não foi enccontrada");
+		
+		
 		
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		
+		var conta = buscarNaCollection(numero);
+		if (conta !=null) {
+		 	conta.depositar(valor);
+				System.out.println("O deposito foi efetuado com sucesso");
+		} else 
+			System.out.println(" A Conta número: " + numero + "não foi enccontrada");
+		
+		
+		
 		
 	}
 
 	@Override
 	public void transferir(int numero, int numeroDestino, float valor) {
-		// TODO Auto-generated method stub
+		var contaOrigem = buscarNaCollection(numero);
+		var contaDestino = buscarNaCollection(numeroDestino);
+		
+		if (contaOrigem !=null && contaDestino!=null) {
+			
+			if(contaOrigem.sacar(valor)==true) {
+				contaDestino.depositar(valor);
+				System.out.println(" A transferencia foi efetuado com sucesso");
+			}
+			
+		} else 
+			System.out.println(" A Conta de Origem e/ ou Destino não foram encontradas: ");
+		
 		
 	}
 	
@@ -87,7 +120,10 @@ public class ContaController implements ContaRepository {
 	
 	public int gerarNumero() {
 		
-		return listaContas.size() + 1;
+		
+		// return listaContas.size() + 1;
+		
+		return ++ numero;
 	}
 	
 	public Conta buscarNaCollection (int numero) {

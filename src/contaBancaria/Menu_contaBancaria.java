@@ -245,6 +245,8 @@ public class Menu_contaBancaria {
 							System.out.println("Valor do saque: ");
 							valor = leia.nextFloat();
 							
+							// Método sacar
+							contas.sacar(numero, valor);
 							
 							keyPress();
 							break;
@@ -256,10 +258,10 @@ public class Menu_contaBancaria {
 							System.out.println("Número da Conta: ");
 							numero = leia.nextInt();
 							
-							System.out.println("Valor do saque: ");
+							System.out.println("Valor do deposito: ");
 							valor = leia.nextFloat();
 							
-							
+							contas.depositar(numero, valor);
 							
 							keyPress();
 							break;
@@ -275,6 +277,8 @@ public class Menu_contaBancaria {
 							System.out.println("Valor da Transferencia: ");
 							valor = leia.nextFloat();
 							
+							
+							contas.transferir(numero, numeroDestino, valor);
 							
 							
 							keyPress();
